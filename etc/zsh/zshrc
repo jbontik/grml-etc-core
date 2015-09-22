@@ -1907,6 +1907,7 @@ grml_vcs_info_toggle_colour () {
     return 0
 }
 
+
 grml_vcs_info_set_formats () {
     emulate -L zsh
     #setopt localoptions xtrace
