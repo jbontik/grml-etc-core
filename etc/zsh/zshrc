@@ -1890,8 +1890,8 @@ grml_vcs_plain_formats=(
 )
 
 grml_vcs_coloured_formats=(
-    format "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}-${MAGENTA}[${GREEN}%b${MAGENTA}]${NO_COLOR} "
-    actionformat "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}-${MAGENTA}[${GREEN}%b${YELLOW}|${RED}%a${MAGENTA}]${NO_COLOR} "
+    format "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}-${MAGENTA}[${GREEN}%b${MAGENTA}]${NO_COLOR} %c%u${NO_COLOR} "
+    actionformat "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}-${MAGENTA}[${GREEN}%b${YELLOW}|${RED}%a${MAGENTA}] %c%u${NO_COLOR} "
     rev-branchformat "%b${RED}:${YELLOW}%r"
 )
 
@@ -1926,6 +1926,9 @@ grml_vcs_info_set_formats () {
     zstyle ':vcs_info:*'              actionformats "$AF" "zsh: %r"
     zstyle ':vcs_info:*'              formats       "$F"  "zsh: %r"
     zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat  "$BF"
+    zstyle ':vcs_info:*' check-for-changes true
+    zstyle ':vcs_info:*' stagedstr '%F{28}!'
+    zstyle ':vcs_info:*' unstagedstr '%F{11}?'
     return 0
 }
 
@@ -2315,7 +2318,7 @@ function prompt_grml_precmd () {
     local grmltheme=grml
     local -a left_items right_items
     left_items=(rc change-root user at host path vcs newline percent)
-    right_items=(sad-smiley)
+    right_items=()
 
     prompt_grml_precmd_worker
 }
