@@ -2314,7 +2314,7 @@ function prompt_grml_precmd () {
     emulate -L zsh
     local grmltheme=grml
     local -a left_items right_items
-    left_items=(rc change-root user at host path vcs percent)
+    left_items=(rc change-root user at host path vcs newline percent)
     right_items=(sad-smiley)
 
     prompt_grml_precmd_worker
