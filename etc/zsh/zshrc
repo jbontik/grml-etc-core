@@ -1927,8 +1927,8 @@ grml_vcs_info_set_formats () {
     zstyle ':vcs_info:*'              formats       "$F"  "zsh: %r"
     zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat  "$BF"
     zstyle ':vcs_info:*' check-for-changes true
-    zstyle ':vcs_info:*' stagedstr '%F{28}!'
-    zstyle ':vcs_info:*' unstagedstr '%F{11}?'
+    zstyle ':vcs_info:*' stagedstr '%F{red}!'
+    zstyle ':vcs_info:*' unstagedstr '%F{red}?'
     return 0
 }
 
