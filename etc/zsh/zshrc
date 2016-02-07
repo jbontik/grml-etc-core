@@ -3706,3 +3706,5 @@ zrclocal
 # Local variables:
 # mode: sh
 # End:
+
+cdpath=(~ $(cygpath $USERPROFILE)/code)
