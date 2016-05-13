@@ -3707,6 +3707,8 @@ zrclocal
 # Local variables:
 # mode: sh
 # End:
-CODE=$(cygpath $USERPROFILE/code)
-alias cdc="cd $CODE"
-cdpath=(~ $CODE)
+if hash cygpath 2>/dev/null; then
+    CODE=$(cygpath $USERPROFILE/code)
+    alias cdc="cd $CODE"
+    cdpath=(~ $CODE)
+fi
